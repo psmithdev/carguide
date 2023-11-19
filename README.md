@@ -17,9 +17,7 @@ The Used Car Guide website offers detailed information and known issues about va
 
 ### Technologies Used
 
-    HTML
-    CSS
-    JavaScript
+    HTML, CSS, JavaScript
 
 #### Credits
 
