@@ -13,11 +13,26 @@
     </header>
     <main>
       <section id="car-selection">
-        <!-- Car selection form components here -->
+        <label for="year">Year:</label>
+        <select id="year" onchange="updateModels()">
+          <!-- Options will be populated by JavaScript -->
+        </select>
+
+        <label for="make">Make:</label>
+        <select id="make" onchange="updateModels()">
+          <option value="BMW">BMW</option>
+          <option value="Chevrolet">Chevrolet</option>
+          <!-- Add more options as needed -->
+        </select>
+
+        <label for="model">Model:</label>
+        <select id="model" onchange="updateDisplay()">
+          <!-- Options will be populated based on the make and year by JavaScript -->
+        </select>
       </section>
 
       <!-- BMW E46 M3 Details -->
-      <section id="car-details-e46m3" class="car-details">
+      <section id="car-details-e46m3" class="car-details" style="display: none">
         <h2>Used Car Guide: BMW E46 M3</h2>
         <ul>
           <!-- Each <li> contains an issue and its description -->
@@ -36,7 +51,7 @@
       </section>
 
       <!-- BMW E90 M3 Details -->
-      <section id="car-details-e90m3" class="car-details">
+      <section id="car-details-e90m3" class="car-details" style="display: none">
         <h2>Used Car Guide: BMW E90 M3</h2>
         <ul>
           <!-- Similar structure for issues and descriptions -->
@@ -53,7 +68,11 @@
       </section>
 
       <!-- C6 Corvette ZR1 Details -->
-      <section id="car-details-c6corvettezr1" class="car-details">
+      <section
+        id="car-details-c6corvettezr1"
+        class="car-details"
+        style="display: none"
+      >
         <h2>Used Car Guide: C6 Corvette ZR1</h2>
         <ul>
           <!-- Listing issues specific to C6 Corvette ZR1 -->
@@ -72,7 +91,11 @@
       </section>
 
       <!-- C6 Corvette Z06 Details -->
-      <section id="car-details-c6corvettez06" class="car-details">
+      <section
+        id="car-details-c6corvettez06"
+        class="car-details"
+        style="display: none"
+      >
         <h2>Used Car Guide: C6 Corvette Z06</h2>
         <ul>
           <!-- Listing issues specific to C6 Corvette Z06 -->
