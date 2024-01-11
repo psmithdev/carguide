@@ -6,179 +6,127 @@
     <title>Used Car Guide</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
-  <body>
-    <header>
-      <h1>Used Car Guide</h1>
-    </header>
-    <main>
-      <section id="car-selection">
-        <label for="year">Year:</label>
-        <select id="year" onchange="updateModels()">
-          <!-- Options will be populated by JavaScript -->
-        </select>
-
-        <label for="make">Make:</label>
-        <select id="make" onchange="updateModels()">
-          <option value="BMW">BMW</option>
-          <option value="Chevrolet">Chevrolet</option>
-          <!-- Add more options as needed -->
-        </select>
-
-        <label for="model">Model:</label>
-        <select id="model" onchange="updateDisplay()">
-          <!-- Options will be populated based on the make and year by JavaScript -->
-        </select>
-      </section>
-
-      <!-- BMW E46 M3 Details -->
-      <section id="car-details-e46m3" class="car-details" style="display: none">
-        <h2>Used Car Guide: BMW E46 M3</h2>
-        <ul>
-          <!-- Each <li> contains an issue and its description -->
-          <li>
-            <h3>VANOS Issues</h3>
-            <p>
-              Problems with the variable valve timing system can lead to a lack
-              of power at lower rpm, hesitant acceleration, rough idle, and long
-              cranking of the cold engine. Fixing the entire unit with a rebuilt
-              one may cost around $1800.
-            </p>
-          </li>
-          <li>
-            <h3>SMG Issues</h3>
-            <p>
-              The Sequential Manual Gearbox can face issues like trouble
-              shifting, jerks at lower speeds, and overheating. Replacing the
-              entire gearbox can set you back around $7,000.
-            </p>
-          </li>
-          <li>
-            <h3>Subframe Cracks</h3>
-            <p>
-              Cracks can appear in the subframe even on cars that haven't been
-              raced. Repairing these cracks can be expensive, often costing
-              several thousand dollars.
-            </p>
-          </li>
-          <li>
-            <h3>Rod Bearing Issues</h3>
-            <p>
-              The rod bearings can wear out prematurely, leading to potential
-              engine failure. It's recommended to replace them as a preventative
-              measure, especially on higher mileage cars.
-            </p>
-          </li>
-          <li>
-            <h3>Valve Adjustments</h3>
-            <p>
-              Regular valve adjustments are crucial for the S54 engine in the
-              E46 M3. Neglecting this can lead to reduced performance and
-              potential engine damage.
-            </p>
-          </li>
-        </ul>
-      </section>
-
-      <!-- BMW E90 M3 Details -->
-      <section id="car-details-e90m3" class="car-details" style="display: none">
-        <h2>Used Car Guide: BMW E90 M3</h2>
-        <ul>
-          <!-- Similar structure for issues and descriptions -->
-          <li>
-            <h3>Throttle Actuators</h3>
-            <p>
-              The throttle actuators can fail, leading to reduced performance
-              and a check engine light. Replacement is the most common solution.
-            </p>
-          </li>
-          <li>
-            <h3>Rod Bearings</h3>
-            <p>
-              Like the E46, the E90 M3's rod bearings can wear out prematurely.
-              Regular inspection and replacement are recommended.
-            </p>
-          </li>
-          <li>
-            <h3>Idle Control Valve</h3>
-            <p>
-              The idle control valve can get clogged or fail, leading to rough
-              idling or stalling. Cleaning or replacement can fix the issue.
-            </p>
-          </li>
-        </ul>
-      </section>
-
-      <!-- C6 Corvette ZR1 Details -->
-      <section
-        id="car-details-c6corvettezr1"
-        class="car-details"
-        style="display: none"
-      >
-        <h2>Used Car Guide: C6 Corvette ZR1</h2>
-        <ul>
-          <!-- Listing issues specific to C6 Corvette ZR1 -->
-          <li>
-            <h3>Dash Peeling on the 3LZ</h3>
-            <p>
-              The 3LZ trim, which is the highest luxury level for the C6
-              Corvette ZR1, has been reported to have issues with the leather
-              dash peeling or delaminating. This can be due to heat, humidity,
-              or just age.
-            </p>
-          </li>
-          <li>
-            <h3>Ceramic Brake Vibrations</h3>
-            <p>
-              The C6 Corvette ZR1's ceramic brakes have been reported to cause
-              vibrations during highway driving. This is attributed to the
-              brakes not being balanced correctly from the factory that
-              manufactured these ceramic brakes. The most effective solution is
-              to have the ceramic brakes professionally balanced.
-            </p>
-          </li>
-          <li>
-            <h3>Supercharger Coupler Issues</h3>
-            <p>
-              The supercharger coupler can wear out over time, leading to a
-              rattling noise, especially at idle. Replacing the coupler is the
-              most common fix.
-            </p>
-          </li>
-          <li>
-            <h3>Supercharger Bricks Need Reinforcement</h3>
-            <p>
-              The supercharger on the ZR1 uses intercooler "bricks" to help cool
-              the intake air. Over time, these can crack or fail, especially
-              under high boost or when using aftermarket pulleys. Reinforcing or
-              replacing the bricks with aftermarket solutions can prevent
-              failure.
-            </p>
-          </li>
-        </ul>
-      </section>
-
-      <!-- C6 Corvette Z06 Details -->
-      <section
-        id="car-details-c6corvettez06"
-        class="car-details"
-        style="display: none"
-      >
-        <h2>Used Car Guide: C6 Corvette Z06</h2>
-        <ul>
-          <!-- Listing issues specific to C6 Corvette Z06 -->
-          <li>
-            <h3>Valve Drop Issue</h3>
-            <p>
-              The LS7 engine in the C6 Z06 has been known to suffer from valve
-              drop issues, particularly with the exhaust valves. This can lead
-              to catastrophic engine failure.
-            </p>
-          </li>
-          <!-- Additional issues can be added here -->
-          <!-- ... -->
-        </ul>
-      </section>
-    </main>
+  <body class="bg-gray-800 font-roboto">
+    <div class="container mx-auto p-4">
+      <div class="text-white text-center text-4xl font-bold py-12">
+        Used Car Guide
+        <div class="text-sm py-4">
+          Browse common problems of all makes and models
+        </div>
+        <div class="flex justify-center space-x-2 py-2">
+          <img
+            alt="Logo placeholder for ebay"
+            src="https://placehold.co/100x30"
+          />
+          <img
+            alt="Logo placeholder for cars.com"
+            src="https://placehold.co/100x30"
+          />
+          <img
+            alt="Logo placeholder for TrueCar"
+            src="https://placehold.co/100x30"
+          />
+          <img
+            alt="Logo placeholder for a carvana"
+            src="https://placehold.co/100x30"
+          />
+          <img
+            alt="Logo placeholder for Hemmings"
+            src="https://placehold.co/100x30"
+          />
+          <img
+            alt="Logo placeholder for cars&bids"
+            src="https://placehold.co/100x30"
+          />
+          <img
+            alt="Logo placeholder for CarSoup.com"
+            src="https://placehold.co/100x30"
+          />
+        </div>
+        <div class="text-xs py-2">
+          Disclaimer: This website is for research purposes only.
+        </div>
+      </div>
+      <div class="bg-blue-900 p-8 text-white">
+        <div class="flex justify-between mb-4">
+          <div class="bg-blue-800 px-4 py-2 cursor-pointer">Used Cars</div>
+          <div class="px-4 py-2 cursor-pointer">New Cars</div>
+          <div class="px-4 py-2 cursor-pointer">Other Vehicles & Items</div>
+          <div class="text-xs bg-green-600 px-2 py-1">NEW</div>
+        </div>
+        <div class="grid grid-cols-4 gap-4">
+          <div class="col-span-1">
+            <label class="text-sm" for="make">MAKE</label>
+            <select id="make" class="w-full mt-1 p-2 bg-gray-700 text-white">
+              <option>Any</option>
+            </select>
+          </div>
+          <div class="col-span-1">
+            <label class="text-sm" for="model">MODEL</label>
+            <select id="model" class="w-full mt-1 p-2 bg-gray-700 text-white">
+              <option>Any</option>
+            </select>
+          </div>
+          <div class="col-span-1">
+            <label class="text-sm" for="zip">ZIP/POSTAL *</label>
+            <input
+              type="text"
+              id="zip"
+              class="w-full mt-1 p-2 bg-gray-700 text-white"
+              placeholder="ex: 90210"
+            />
+          </div>
+          <div class="col-span-1">
+            <label class="text-sm" for="distance">DISTANCE *</label>
+            <select
+              id="distance"
+              class="w-full mt-1 p-2 bg-gray-700 text-white"
+            >
+              <option>300 mi.</option>
+            </select>
+          </div>
+        </div>
+        <div class="text-center py-4">
+          <button class="bg-yellow-500 text-white px-8 py-2">Search</button>
+        </div>
+        <div class="text-xs text-center">
+          <div class="py-1">
+            <i class="fas fa-globe-americas"></i> Include International
+          </div>
+          <div class="py-1"><i class="fas fa-search"></i> Advanced Search</div>
+        </div>
+      </div>
+      <div class="flex justify-center space-x-4 py-4">
+        <img
+          alt="Logo placeholder for about.com"
+          src="https://placehold.co/100x30"
+        />
+        <img
+          alt="Logo placeholder for JALOPNIK"
+          src="https://placehold.co/100x30"
+        />
+        <img
+          alt="Logo placeholder for ROAD&TRACK"
+          src="https://placehold.co/100x30"
+        />
+        <img alt="Logo placeholder for BBC" src="https://placehold.co/100x30" />
+        <img
+          alt="Logo placeholder for lifehacker"
+          src="https://placehold.co/100x30"
+        />
+        <img
+          alt="Logo placeholder for Popular Mechanics"
+          src="https://placehold.co/100x30"
+        />
   </body>
 </html>
