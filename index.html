@@ -3,69 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Search Filter</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="app.js" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
   </head>
-
   <body>
-    <h2 class="text-3xl font-bold text-left text-gray-800">Auto Modellista</h2>
-    <h2 class="text-2xl font-semibold mt-4 text-center text-gray-600">
-      Common Issue's? No problem!
-    </h2>
-    <div class="flex justify-center py-5">
-      <div class="bg-gray-100 rounded-lg shadow-lg p-4 flex">
-        <!-- First column -->
-        <div class="flex flex-col mr-2">
-          <label for="make" class="text-gray-700 text-sm">Make</label>
-          <div class="relative">
-            <select
-              id="make"
-              class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            >
-              <option>Corvette</option>
-            </select>
-            <div
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-            >
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
-        </div>
+    <h1>Auto Modellista</h1>
+    <h3>Common Issue's? No problem!</h3>
+    <form id="carSearchForm">
+      <label for="carMake">Car Make:</label>
+      <select id="carMake">
+        <option value="">Select Make</option>
+      </select>
 
-        <!-- Second column -->
-        <div class="flex flex-col mr-2">
-          <label for="model" class="text-gray-700 text-sm">Model</label>
-          <div class="relative">
-            <select
-              id="model"
-              class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            >
-              <option>Base</option>
-              <option>Grand Sport</option>
-              <option>Z06</option>
-              <option>ZR1</option>
-            </select>
-            <div
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-            >
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
-        </div>
+      <label for="carModel">Car Model:</label>
+      <select id="carModel" disabled>
+        <option value="">Select Model</option>
+      </select>
 
-        <!-- Button -->
-        <button
-          onclick="openCorvettePage()"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Search
-        </button>
-      </div>
-    </div>
+      <button type="submit">Search</button>
+    </form>
   </body>
 </html>

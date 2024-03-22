@@ -1,0 +1,12 @@
+{
+  "cars": [
+    {
+      "make": "Toyota",
+      "models": ["Corolla", "Camry", "Prius"]
+    },
+    {
+      "make": "Ford",
+      "models": ["Fiesta", "Focus", "Mustang"]
+    }
+  ]
+}

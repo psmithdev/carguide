@@ -1,63 +1,63 @@
-function updateModels() {
-  var year = parseInt(document.getElementById("year").value);
-  var make = document.getElementById("make").value;
-  var modelDropdown = document.getElementById("model");
+document.addEventListener("DOMContentLoaded", function () {
+  const carMake = document.getElementById("carMake");
+  const carModel = document.getElementById("carModel");
 
-  // Clear existing options
-  modelDropdown.innerHTML = "";
+  // Example data - replace with API calls or more sophisticated data structures as needed
+  const cars = {
+    Chevrolet: ["Corvette", "Camaro", "Impala"],
+    Ford: ["Fiesta", "Focus", "Mustang"],
+    Honda: ["Civic", "Accord", "CR-V"],
+    Toyota: ["Corolla", "Camry", "RAV4"],
+    Nissan: ["Sentra", "Altima", "Maxima"],
+    Hyundai: ["Elantra", "Sonata", "Tucson"],
+    Kia: ["Rio", "Forte", "Sportage"],
+    Mazda: ["Mazda3", "Mazda6", "CX-5"],
+    Subaru: ["Impreza", "Legacy", "Outback"],
+    Volkswagen: ["Golf", "Passat", "Tiguan"],
+    BMW: ["3 Series", "5 Series", "X5"],
+    Mercedes: ["C-Class", "E-Class", "GLC"],
+    Audi: ["A3", "A4", "Q5"],
+    Lexus: ["IS", "ES", "RX"],
+    Acura: ["ILX", "TLX", "MDX"],
+    Infiniti: ["Q50", "Q60", "QX50"],
+    Volvo: ["S60", "S90", "XC60"],
+    Tesla: ["Model 3", "Model S", "Model X"],
+    Jaguar: ["XE", "XF", "F-PACE"],
+    LandRover: ["Discovery", "Range Rover", "Range Rover Sport"],
+    Porsche: ["911", "Cayenne", "Panamera"],
+    Maserati: ["Ghibli", "Quattroporte", "Levante"],
+    Ferrari: ["488", "812", "SF90"],
+    // Add more makes and models as required
+  };
 
-  // Logic to add options based on year and make
-  if (make === "BMW") {
-    if (year >= 2000 && year <= 2006) {
-      addOption(modelDropdown, "E46 M3");
-    } else if (year >= 2008 && year <= 2013) {
-      addOption(modelDropdown, "E90 M3");
-    }
-  } else if (make === "Chevrolet") {
-    if (year >= 2009 && year <= 2013) {
-      addOption(modelDropdown, "C6 Corvette ZR1");
-    }
-    if (year >= 2006 && year <= 2013) {
-      addOption(modelDropdown, "C6 Corvette Z06");
-    }
+  // Populate the car make dropdown
+  for (let make in cars) {
+    let option = new Option(make, make);
+    carMake.options.add(option);
   }
-  updateDisplay();
-}
 
-function addOption(dropdown, value) {
-  var option = document.createElement("option");
-  option.value = value;
-  option.text = value;
-  dropdown.add(option);
-}
+  // Update car model dropdown based on selected make
+  carMake.addEventListener("change", function () {
+    carModel.innerHTML = '<option value="">Select Model</option>'; // Reset models dropdown
+    carModel.disabled = false; // Enable the model dropdown
 
-function updateDisplay() {
-  var model = document.getElementById("model").value;
-
-  // Hide all details sections
-  var carDetails = document.querySelectorAll(".car-details");
-  carDetails.forEach(function (detail) {
-    detail.style.display = "none";
+    let models = cars[this.value]; // Get models for selected make
+    models.forEach(function (model) {
+      let option = new Option(model, model);
+      carModel.options.add(option);
+    });
   });
 
-  // Show the selected model's details
-  var selectedDetail = document.getElementById(
-    "car-details-" + model.replace(/ /g, "").toLowerCase()
-  );
-  if (selectedDetail) {
-    selectedDetail.style.display = "block";
-  }
-}
+  // Intercept the form submission to redirect user to the car's HTML page
+  carSearchForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent the default form submission
 
-function populateYears() {
-  var yearDropdown = document.getElementById("year");
-  for (var i = 2000; i <= 2013; i++) {
-    addOption(yearDropdown, i);
-  }
-}
+    // Assuming you have a URL structure like /cars/make/model.html
+    const make = carMake.value;
+    const model = carModel.value;
+    const url = `/cars/${make}/${model}.html`; // Construct the URL
 
-// Initial setup
-window.onload = function () {
-  populateYears();
-  updateModels();
-};
+    // Redirect the user to the constructed URL
+    window.location.href = url;
+  });
+});

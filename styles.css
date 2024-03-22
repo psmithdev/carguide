@@ -1,28 +1,30 @@
-.search-container {
-  position: relative;
-  width: 300px;
+#carSearchForm {
+  max-width: 400px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-#search-input {
+#carSearchForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#carSearchForm select,
+#carSearchForm button {
   width: 100%;
   padding: 10px;
-  box-sizing: border-box;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
-
-.dropdown-content {
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 100%;
-  border: 1px solid #ddd;
-  z-index: 1;
-  display: none; /* Hide dropdown by default */
-}
-
-.dropdown-content div {
-  padding: 10px;
+a #carSearchForm button {
+  background-color: #007bff;
+  color: white;
   cursor: pointer;
 }
 
-.dropdown-content div:hover {
-  background-color: #f1f1f1;
+#carSearchForm button:hover {
+  background-color: #0056b3;
 }
