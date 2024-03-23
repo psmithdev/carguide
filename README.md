@@ -1,6 +1,6 @@
 # Used Car Guide Website
 
-# Description
+![Auto Modellista Logo](/logo_gold.png)
 
 The Used Car Guide website offers detailed information and known issues about various car models. It's designed to help users make informed decisions when purchasing used cars. The site features an intuitive interface allowing users to select a car's make, model, and year, then dynamically displays relevant details.
 

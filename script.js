@@ -27,6 +27,24 @@ document.addEventListener("DOMContentLoaded", function () {
     Porsche: ["911", "Cayenne", "Panamera"],
     Maserati: ["Ghibli", "Quattroporte", "Levante"],
     Ferrari: ["488", "812", "SF90"],
+    Lamborghini: ["Huracan", "Aventador"],
+    RollsRoyce: ["Phantom", "Ghost"],
+    Bugatti: ["Chiron"],
+    McLaren: ["720S"],
+    AstonMartin: ["DB11", "Vantage"],
+    Bentley: ["Continental GT"],
+    AlfaRomeo: ["Giulia", "Stelvio"],
+    Mini: ["Cooper", "Countryman"],
+    Fiat: ["500", "124 Spider"],
+    Smart: ["Fortwo"],
+    Jeep: ["Wrangler", "Grand Cherokee"],
+    GMC: ["Sierra", "Yukon"],
+    Ram: ["1500"],
+    Dodge: ["Challenger", "Charger"],
+    Chrysler: ["300"],
+    Buick: ["Regal", "Enclave"],
+    Cadillac: ["CT4", "CT5", "Escalade"],
+    Lincoln: ["MKZ", "Navigator"],
     // Add more makes and models as required
   };
 
@@ -52,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
   carSearchForm.addEventListener("submit", function (e) {
     e.preventDefault(); // Prevent the default form submission
 
-    // Assuming you have a URL structure like /cars/make/model.html
+    // URL structure /cars/make/model.html
     const make = carMake.value;
     const model = carModel.value;
     const url = `./cars/${make}/${model}.html`; // Construct the URL
