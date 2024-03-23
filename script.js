@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Assuming you have a URL structure like /cars/make/model.html
     const make = carMake.value;
     const model = carModel.value;
-    const url = `/cars/${make}/${model}.html`; // Construct the URL
+    const url = `./cars/${make}/${model}.html`; // Construct the URL
 
     // Redirect the user to the constructed URL
     window.location.href = url;
