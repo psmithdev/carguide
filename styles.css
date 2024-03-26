@@ -2,8 +2,8 @@ body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff; /* Light background */
-  color: #333333; /* Dark text for contrast */
+  background-color: #ffffff;
+  color: #333333;
   display: flex;
   justify-content: center;
   /* align-items: center; */
@@ -38,26 +38,26 @@ h3 {
 #carSearchForm label {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #1976d2; /* Matching vibrant color for labels */
+  color: #1976d2;
 }
 
 #carSearchForm select,
 #carSearchForm button {
   padding: 12px;
   border-radius: 5px;
-  border: 2px solid #1976d2; /* Vibrant border color */
-  background-color: #ffffff; /* Light elements */
-  color: #333333; /* Dark text for readability */
+  border: 2px solid #1976d2; 
+  background-color: #ffffff; 
+  color: #333333; 
 }
 
 #carSearchForm button {
-  background-color: #1976d2; /* Vibrant button color */
+  background-color: #1976d2; 
   font-weight: bold;
   cursor: pointer;
-  color: #ffffff; /* Light text on buttons for contrast */
+  color: #ffffff;
   margin-top: 10px; Added margin for spacing from the last select
 }
 
 #carSearchForm button:hover {
-  background-color: #1565c0; /* Darker shade on hover */
+  background-color: #1565c0;
 }

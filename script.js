@@ -2,9 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const carMake = document.getElementById("carMake");
   const carModel = document.getElementById("carModel");
 
-  // Example data - replace with API calls or more sophisticated data structures as needed
+  // Example data - replace with API calls or more sophisticated data structure
   const cars = {
-    Chevrolet: ["Corvette", "Camaro", "Impala"],
+    Chevrolet: [
+      {
+        model: "Camaro",
+        subModels: ["Gen 4", "Gen 5", "Gen 6"],
+      },
+      {
+        model: "Corvette",
+        subModels: ["C5", "C6", "C7", "C8"],
+      }, // may need to convert to nested objects in the future for year, specs, etc.
+    ],
     Ford: ["Fiesta", "Focus", "Mustang"],
     Honda: ["Civic", "Accord", "CR-V"],
     Toyota: ["Corolla", "Camry", "RAV4"],
@@ -13,7 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
     Kia: ["Rio", "Forte", "Sportage"],
     Mazda: ["Mazda3", "Mazda6", "CX-5"],
     Subaru: ["Impreza", "Legacy", "Outback"],
-    Volkswagen: ["Golf", "Passat", "Tiguan"],
+    Volkswagen: [
+      "Golf",
+      "e-Golf",
+      "Golf Alltrack",
+      "Golf GTI",
+      "Golf R",
+      "Golf III",
+      "Golf Sportswagen",
+    ],
     BMW: ["3 Series", "5 Series", "X5"],
     Mercedes: ["C-Class", "E-Class", "GLC"],
     Audi: ["A3", "A4", "Q5"],
@@ -60,13 +77,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // update car model dropdown based on selected make
   function updateCarModels() {
-    carModel.innerHTML = '<option value="">Select Model</option>'; // Reset models dropdown
-    carModel.disabled = false; // Enable the model dropdown
+    carModel.innerHTML = '<option value="">Select Model</option>';
+    carModel.disabled = false;
 
-    let models = cars[carMake.value]; // Get models for selected make
-    models.forEach(function (model) {
-      let option = new Option(model, model);
-      carModel.options.add(option);
+    let models = cars[carMake.value];
+    models.forEach(function (modelItem) {
+      // Add the main model as an option
+      let mainModelOption = new Option(modelItem.model, modelItem.model);
+      carModel.options.add(mainModelOption);
+
+      // Check if there are sub-models like generations and add them as indented options
+      if (modelItem.subModels) {
+        modelItem.subModels.forEach(function (subModel) {
+          // For indentation, create option elements manually to include HTML like &nbsp;
+          let option = document.createElement("option");
+          option.value = subModel;
+          option.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;" + subModel; // Adjust indentation as needed
+          carModel.options.add(option);
+        });
+      }
     });
   }
 
