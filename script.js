@@ -48,26 +48,29 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add more makes and models as required
   };
 
-  // Populate the car make dropdown
-  for (let make in cars) {
-    let option = new Option(make, make);
-    carMake.options.add(option);
+  // populate the car make dropdown, with sorting
+  function populateCarMakes() {
+    Object.keys(cars)
+      .sort()
+      .forEach(function (make) {
+        let option = new Option(make, make);
+        carMake.options.add(option);
+      });
   }
 
-  // Update car model dropdown based on selected make
-  carMake.addEventListener("change", function () {
+  // update car model dropdown based on selected make
+  function updateCarModels() {
     carModel.innerHTML = '<option value="">Select Model</option>'; // Reset models dropdown
     carModel.disabled = false; // Enable the model dropdown
 
-    let models = cars[this.value]; // Get models for selected make
+    let models = cars[carMake.value]; // Get models for selected make
     models.forEach(function (model) {
       let option = new Option(model, model);
       carModel.options.add(option);
     });
-  });
+  }
 
-  // Intercept the form submission to redirect user to the car's HTML page
-  carSearchForm.addEventListener("submit", function (e) {
+  function handleFormSubmission(e) {
     e.preventDefault(); // Prevent the default form submission
 
     // URL structure /cars/make/model.html
@@ -75,7 +78,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const model = carModel.value;
     const url = `./cars/${make}/${model}.html`; // Construct the URL
 
-    // Redirect the user to the constructed URL
+    // Redirect the user
     window.location.href = url;
-  });
+  }
+
+  // Event listeners
+  carMake.addEventListener("change", updateCarModels);
+  document
+    .getElementById("carSearchForm")
+    .addEventListener("submit", handleFormSubmission);
+
+  // Initial population of car makes
+  populateCarMakes();
 });
